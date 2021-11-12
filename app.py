@@ -7,7 +7,7 @@ from tensorflow import keras
 import cv2
 from werkzeug.utils import secure_filename
 
-upload_folder = 'static/uploaded'
+upload_folder = 'static'
 model = keras.models.load_model('resnet50_model.h5')
 
 app = Flask(__name__, template_folder='.')
@@ -102,7 +102,7 @@ def predict_heart_diesease():
 def b_t_prediction():
 	img = request.files['file']
 	img.save(os.path.join(app.config['upload_folder'], img.filename))
-	img_prep = preprocess_imgs_test(cv2.imread('static/uploaded/'+img.filename), (224,224))
+	img_prep = preprocess_imgs_test(cv2.imread('static/'+img.filename), (224,224))
 	result = model.predict(np.expand_dims(img_prep, axis=0))
 	print(result)
 	if result[0][0] < 0.5:
