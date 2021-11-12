@@ -1,0 +1,214 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>Diabetes Predication</title>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width,initial-scale=1.0">
+	<link href='https://unpkg.com/boxicons@2.0.7/css/boxicons.min.css' rel='stylesheet'>
+	<link rel="icon" href="{{ url_for('static', filename='final.jpeg') }}"/>
+	<link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='style.css') }}">
+	<style type="text/css">
+		/* #form-div{
+			padding-left: 300px;
+		}
+		div{
+			padding-bottom: 10px;
+		}
+		input, select{
+			border: none;
+			border-bottom: 2px solid;
+			margin: 5px 0 10px 0;
+			outline: none;
+			font-size: 15px;
+			margin-left: 10px;
+		} */
+		body
+		{
+			margin: 0;
+			padding: 0;
+			/* background-image: url("web.jpg"); */
+			background: #ebebeb;
+
+			/* text-align: center; */
+		}
+		#form-div{
+			/* padding-left: 400px; */
+			
+			position: relative;
+			width: 770px;
+			padding-left: 200px;
+			height: 300px;
+			margin: 30px;
+			margin-left: 300px;
+			box-shadow: 20px 20px 50px rgba(0,0,0,0.5);
+			border-radius: 15px;
+			background: rgba(255,255,255,0.5);
+			overflow: hidden;
+			display: flex;
+			justify-content: center;
+			align-items: center;
+			border-top: 1px solid rgba(255,255,255,0.5);
+			border-left: 1px solid rgba(255,255,255,0.5);
+			backdrop-filter: blur(5px);
+
+		}
+		/* div{
+			padding-bottom: 10px;
+		} */
+		input, select{
+			/* border-radius: 20px; */
+			padding-left: 20px;
+			height: 32px;
+			border: none;
+			/* box-sizing: border-box; */
+			background-color: transparent;
+			width: 230px;
+			border-bottom: 1px solid;
+			margin: 5px 10px 10px 0;
+			outline: none;
+			font-size: 15px;
+			font-family: 'Arvo', serif;
+			margin-left: 30px; 
+			/* background: transparent;  */
+		}
+		input:focus
+		{
+			border: none;
+			border-bottom: 2px solid;
+			background-color: transparent;
+		}
+		table
+		{
+			width: 105%;
+			padding-left: -40px;
+			margin-left: -150px;
+			margin-top: -10px;
+
+			/* text-align: right; */
+			
+		}
+		h1{
+			font-family: 'Arvo', serif;
+		}
+		/* button
+		{
+			margin-top: 200px;
+			margin-left: 200px;
+		} */
+		.btn
+		{  
+			font-family: 'Arvo', serif;
+			margin-left: 250px;
+			margin-top: 40px;
+		}
+		.btn:hover .btn-slide-show-text1 
+		{  
+			margin-left: 65px;
+		}  
+		.btn-moving-gradient 
+		{  
+			height: 40px;  
+			width: 200px;  
+			font-size: 16px;  
+			font-weight: 600;  
+			color: rgb(221, 214, 214);  
+			cursor: pointer;  
+			border: none;  
+			background-size: 300% 100%;  
+			border-radius: 50px;
+		}  
+		.btn-moving-gradient:hover 
+		{  
+			transition: all 0.5s ease-in-out 0s;  
+			background-position: 100% 0px;
+		}  
+		.btn-moving-gradient--purple 
+		{  
+			background-image: linear-gradient(90deg, rgb(62, 53, 141), rgb(135, 53, 141), rgb(106, 53, 141), rgb(61, 52, 139));  
+			box-shadow: rgb(135, 53, 141) 0px 4px 15px 0px;
+		}
+	</style>
+</head>
+<body>
+	<header class="l-header">
+		<nav class="nav bd-grid">
+			<div>
+				<a href="#" class="nav__logo">Healthsite</a>
+			</div>
+			<div class="nav__menu" id="nav-menu">
+				<ul class="nav__list">
+					<li class="nav__item"><a href="home" class="nav__link">Home</a></li>
+					<!-- <li class="nav__item"><a href="#services" class="nav__link active">Services</a></li>
+					<li class="nav__item"><a href="#plans" class="nav__link">plans</a></li>
+					<li class="nav__item"><a href="#about" class="nav__link">About</a></li>
+					<li class="nav__item"><a href="#contact" class="nav__link">Contact</a></li> -->
+					<!-- <li class="nav__item"><a href="index.html" class="nav__link">Logout</a></li> -->
+				</ul>
+			</div>
+			
+		</nav>
+		
+	</header>
+	<h1 align="center">Diabetes Prediction</h1>
+	<!-- <div id="form-div">
+		<form action="/diabetes_predict" method="POST">
+			<div>
+				<label><b>Age:</b></label>
+				<input type="text" name="sod" required id="sod">
+				<label>Years</label>
+			</div>
+			<div>
+				<label><b>Insulin:</b></label>
+				<input type="text" name="sc" required id="sc">
+				<label>U/ml</label>
+			</div>
+			<div>
+				<label><b>Body Mask Index(BMI) [weight in kg/(height in m)^2]:</b></label>
+				<input type="text" name="bu" required id="bu">
+			</div>
+			<div align="center">
+				<button type="Submit" class="btn btn-moving-gradient btn-moving-gradient--purple" style="font-size: 20px;">Predict</button>
+			</div>
+		</form> -->
+
+		<div id="form-div">
+			<table >
+				<form action="/diabetes_predict" method="POST">
+					<tr><div>
+						<td><label><b>Age:</b></label></td>
+						<td><input type="text" autocomplete="off" name="sod" required id="sod"> Years</td>
+						<!-- <label>Years</label> -->
+					</div></tr>
+					<tr><div>
+						<td><label><b>Insulin:</b></label></td>
+						<td><input type="text" autocomplete="off" name="sc" required id="sc"> U/ml</td>
+						<!-- <label>U/ml</label> -->
+					</div></tr>
+					<tr>
+						<div>
+							<td><label><b>Body Mask Index(BMI) <br>(weight in kg/(height in m^2):</b></label></td>
+							<td><input type="text" autocomplete="off" name="bu" required id="bu"></td>
+						</div>
+					</tr>
+					
+					<!-- <div align="center"> -->
+						
+						<tr>
+							<td><button type="Submit" class="btn btn-moving-gradient btn-moving-gradient--purple" btn-moving-gradient--purple">Predict</button></td>
+						</tr>
+						<!-- </div>  -->
+				</form>
+				<!-- <button type="Submit" class="btn btn-moving-gradient 
+					class="btn btn-moving-gradient btn-moving-gradient--purple"
+					btn-moving-gradient--purple">Predict</button>  -->
+			</table><br>
+			
+			
+				<!-- <h2 align="center"><b>{{result}}</b></h2>  -->
+		</div>
+			
+		<h2 align="center"><b>{{result}}</b></h2>
+	</div>
+</body>
+</html>

@@ -1,0 +1,376 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>Kidney Dieseas Predication</title>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width,initial-scale=1.0">
+	<link href='https://unpkg.com/boxicons@2.0.7/css/boxicons.min.css' rel='stylesheet'>
+	<link rel="icon" href="{{ url_for('static', filename='final.jpeg') }}"/>
+	<link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='style.css') }}">
+	<style type="text/css">
+		/* #form-div{
+			padding-left: 300px;
+		}
+		div{
+			padding-bottom: 10px;
+		}
+		input, select{
+			border: none;
+			border-bottom: 2px solid;
+			margin: 5px 0 10px 0;
+			outline: none;
+			font-size: 15px;
+			margin-left: 10px;
+		} */
+		body
+		{
+			margin: 0;
+			padding: 0;
+			background: #ebebeb;
+			/* background-color: #dbd8d4; */
+			/* text-align: center; */
+		}
+		#form-div{
+			/* padding-left: 400px; */
+			/* margin-left:500px; */
+			position: relative;
+			width: 900px;
+			padding-left: 370px;
+			height: 550px;
+			margin: 30px;
+			margin-left: 155px;
+			box-shadow: 20px 20px 50px rgba(0,0,0,0.5);
+			border-radius: 15px;
+			background: rgba(255,255,255,0.5);
+			overflow: hidden;
+			display: flex;
+			justify-content: center;
+			align-items: center;
+			border-top: 1px solid rgba(255,255,255,0.5);
+			border-left: 1px solid rgba(255,255,255,0.5);
+			backdrop-filter: blur(5px);
+		}
+		/* div{
+			padding-bottom: 10px;
+		} */
+		input, select{
+			/* border-radius: 20px;
+			padding-left: 10px;
+			height: 32px;
+			width: 170px;
+			border: 1px solid;
+			margin: 5px 0 10px 0;
+			outline: none;
+			font-size: 15px;
+			font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+			margin-left: 10px; */
+			
+			padding-left: 10px;
+			height: 32px;
+			border: none;
+			/* box-sizing: border-box; */
+			background-color: transparent;
+			width: 200px;
+			border-bottom: 1px solid;
+			margin: 5px 10px 10px 0;
+			outline: none;
+			font-size: 15px;
+			font-family: 'Arvo', serif;
+			margin-left: 30px; 
+			
+		}
+		input:focus
+		{
+			border: none;
+			border-bottom: 2px solid;
+			background-color: transparent;
+			
+		}
+		table
+		{
+			width: 125%;
+			margin-left: -300px;
+			margin-top: -10px;
+		}
+		h1{
+			font-family: 'Arvo', serif;
+		}
+		h2{
+			padding-bottom: 34px;;
+		}
+		/* button
+		{
+			margin-top: 200px;
+			margin-left: 200px;
+		} */
+		.btn
+		{  
+			font-family: 'Arvo', serif;
+			margin-left: 430px;
+			margin-top: 50px;
+			/* margin: auto; */
+			/* padding: auto; */
+		}
+		.btn:hover .btn-slide-show-text1 
+		{  
+			margin-left: 65px;
+		}  
+		.btn-moving-gradient 
+		{  
+			height: 40px;  
+			width: 200px;  
+			font-size: 16px;  
+			font-weight: 600;  
+			color: rgb(221, 214, 214);  
+			cursor: pointer;  
+			border: none;  
+			background-size: 300% 100%;  
+			border-radius: 50px;
+		}  
+		.btn-moving-gradient:hover 
+		{  
+			transition: all 0.5s ease-in-out 0s;  
+			background-position: 100% 0px;
+		}  
+		.btn-moving-gradient--purple 
+		{  
+			background-image: linear-gradient(90deg, rgb(62, 53, 141), rgb(135, 53, 141), rgb(106, 53, 141), rgb(61, 52, 139));  
+			box-shadow: rgb(135, 53, 141) 0px 4px 15px 0px;
+		}
+		label{
+			font-family: 'Arvo', serif;
+			text-align: right;
+		}
+	</style>
+</head>
+<body>
+	<header class="l-header">
+		<nav class="nav bd-grid">
+			<div>
+				<a href="#" class="nav__logo">Healthsite</a>
+			</div>
+			<div class="nav__menu" id="nav-menu">
+				<ul class="nav__list">
+					<li class="nav__item"><a href="home" class="nav__link">Home</a></li>
+					<!-- <li class="nav__item"><a href="#services" class="nav__link active">Services</a></li>
+					<li class="nav__item"><a href="#plans" class="nav__link">plans</a></li>
+					<li class="nav__item"><a href="#about" class="nav__link">About</a></li>
+					<li class="nav__item"><a href="#contact" class="nav__link">Contact</a></li> -->
+
+					<!-- <li class="nav__item"><a href="index.html" class="nav__link">Logout</a></li> -->
+				</ul>
+			</div>
+			
+		</nav>
+		
+	</header>
+	<h1 align="center">Kidney Dieseas Prediction</h1>
+	<!-- <div id="form-div">
+		<form action="/kidney_dieseas_predict" method="POST">
+			<div>
+				<label><b>Red Blood Cell Count:</b></label>
+				<input type="text" name="rbcc" required id="rbcc">
+				<label>millions/cmm</label>
+			</div>
+			<div>
+				<label><b>Appetite:</b></label>
+				<select name="appet" id="appet">
+					<option value="0">Good</option>
+					<option value="1">Poor</option>
+				</select>
+			</div>
+			<div>
+				<label><b>Sodium:</b></label>
+				<input type="text" name="sod" required id="sod">
+				<label>mEq/L</label>
+			</div>
+			<div>
+				<label><b>Serum Creatinine:</b></label>
+				<input type="text" name="sc" required id="sc">
+				<label>mgs/dl</label>
+			</div>
+			<div>
+				<label><b>Blood Urea:</b></label>
+				<input type="text" name="bu" required id="bu">
+				<label>mgs/dl</label>
+			</div>
+			<div>
+				<label><b>Pus Cell clumps:</b></label>
+				<select name="pcc" id="pcc">
+					<option value="0">Not Present</option>
+					<option value="1">Present</option>
+				</select>
+			</div>
+			<div>
+				<label><b>Hemoglobin:</b></label>
+				<input type="text" name="hemo" required id="hemo">
+				<label>gms</label>
+			</div>
+			<div>
+				<label><b>Anemia:</b></label>
+				<select name="ane" id="ane">
+					<option value="0">No</option>
+					<option value="1">Yes</option>
+				</select>
+			</div>
+			<div>
+				<label><b>Hypertension:</b></label>
+				<select name="htn" id="htn">
+					<option value="0">No</option>
+					<option value="1">Yes</option>
+				</select>
+			</div>
+			<div>
+				<label><b>Packed  Cell Volume:</b></label>
+				<input type="text" name="pcv" required id="pcv">
+			</div>
+			<div>
+				<label><b>Coronary Artery Disease:</b></label>
+				<select name="cad" id="cad">
+					<option value="0">No</option>
+					<option value="1">Yes</option>
+				</select>
+			</div>
+			<div>
+				<label><b>Diabetes Mellitus:</b></label>
+				<select name="dm" id="dm">
+					<option value="0">No</option>
+					<option value="1">Yes</option>
+				</select>
+			</div>
+			<div>
+				<label><b>Pedal Edema:</b></label>
+				<select name="pe" id="pe">
+					<option value="0">No</option>
+					<option value="1">Yes</option>
+				</select>
+			</div>
+			<div align="center">
+				<button type="Submit" class="btn btn-moving-gradient btn-moving-gradient--purple" style="font-size: 20px;">Predict</button>
+			</div>
+		</form> -->
+		<div id="form-div">
+		<table>
+		<form action="/kidney_dieseas_predict" method="POST">
+			<tr><div>
+				<td><label><b>Red Blood Cell Count:</b></label></td>
+				<td><input type="text" name="rbcc" required id="rbcc">  millions/cmm</td>
+				<!-- <label>millions/cmm</label> -->
+				<td><label><b>Appetite:</b></label></td>
+				<td><select name="appet" id="appet">
+					<option value="0">Good</option>
+					<option value="1">Poor</option>
+				</select></td>
+			</div></tr>
+			<!-- <tr><div>
+				<td><label><b>Appetite:</b></label></td>
+				<td><select name="appet" id="appet">
+					<option value="0">Good</option>
+					<option value="1">Poor</option>
+				</select></td>
+			</div></tr> -->
+			<tr><div>
+				<td><label><b>Sodium:</b></label></td>
+				<td><input type="text" name="sod" required id="sod" autocomplete="off">  mEq/L</td>
+				<!-- <label>mEq/L</label> -->
+				<td><label><b>Serum Creatinine:</b></label></td>
+				<td><input type="text" name="sc" required id="sc">  mgs/dl</td>
+				<!-- <label>mgs/dl</label> -->
+			</div></tr>
+			<!-- <tr><div>
+				<td><label><b>Serum Creatinine:</b></label></td>
+				<td><input type="text" name="sc" required id="sc">  mgs/dl</td>
+				<!-- <label>mgs/dl</label> -->
+			</div></tr>
+			<tr><div>
+				<td><label><b>Blood Urea:</b></label></td>
+				<td><input type="text" name="bu" required id="bu">  mgs/dl</td>
+				<!-- <label>mgs/dl</label> -->
+				<td><label><b>Pus Cell clumps:</b></label></td>
+				<td><select name="pcc" id="pcc">
+					<option value="0">Not Present</option>
+					<option value="1">Present</option>
+				</select></td>
+			</div></tr>
+			<!-- <tr><div>
+				<td><label><b>Pus Cell clumps:</b></label></td>
+				<td><select name="pcc" id="pcc">
+					<option value="0">Not Present</option>
+					<option value="1">Present</option>
+				</select></td>
+			</div></tr> -->
+			<tr><div>
+				<td><label><b>Hemoglobin:</b></label></td>
+				<td><input type="text" name="hemo" required id="hemo">  gms</td>
+				<!-- <label>gms</label> -->
+				<td><label><b>Anemia:</b></label></td>
+				<td><select name="ane" id="ane">
+					<option value="0">No</option>
+					<option value="1">Yes</option>
+				</select></td>
+			</div></tr>
+			<!-- <tr><div>
+				<td><label><b>Anemia:</b></label></td>
+				<td><select name="ane" id="ane">
+					<option value="0">No</option>
+					<option value="1">Yes</option>
+				</select></td>
+			</div></tr> -->
+			<tr><div>
+				<td><label><b>Hypertension:</b></label></td>
+				<td><select name="htn" id="htn">
+					<option value="0">No</option>
+					<option value="1">Yes</option>
+				</select></td>
+				<td><label><b>Packed  Cell Volume:</b></label></td>
+				<td><input type="text" name="pcv" required id="pcv"></td>
+			</div></tr>
+			<!-- <tr><div>
+				<td><label><b>Packed  Cell Volume:</b></label></td>
+				<td><input type="text" name="pcv" required id="pcv"></td>
+			</div></tr> -->
+			<tr><div>
+				<td><label><b>Coronary Artery Disease:</b></label></td>
+				<td><select name="cad" id="cad">
+					<option value="0">No</option>
+					<option value="1">Yes</option>
+				</select></td>
+				<td><label><b>Diabetes Mellitus:</b></label></td>
+				<td><select name="dm" id="dm">
+					<option value="0">No</option>
+					<option value="1">Yes</option>
+				</select></td>
+			</div></tr>
+			<!-- <tr><div>
+				<td><label><b>Diabetes Mellitus:</b></label></td>
+				<td><select name="dm" id="dm">
+					<option value="0">No</option>
+					<option value="1">Yes</option>
+				</select></td>
+			</div></tr> -->
+			<tr><div>
+				<td><label><b>Pedal Edema:</b></label></td>
+				<td><select name="pe" id="pe">
+					<option value="0">No</option>
+					<option value="1">Yes</option>
+				</select></td>
+				<td></td>
+			</div></tr>
+			
+			
+			<tr>
+				<!-- <td></td> -->
+				<td colspan="4"><button type="Submit" class="btn btn-moving-gradient btn-moving-gradient--purple">Predict</button></td>
+			</tr>
+			
+			
+		</form>
+	</table>
+	<br>
+	
+		<!-- <h2 align="center"><b>{{result}}</b></h2> -->
+	</div>
+	<h2 align="center"><b>{{result}}</b></h2>
+</body>
+</html>

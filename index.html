@@ -1,0 +1,295 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title> HealthSite</title>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width,initial-scale=1.0">
+	<link href='https://unpkg.com/boxicons@2.0.7/css/boxicons.min.css' rel='stylesheet'>
+	<link rel="icon" href="{{ url_for('static', filename='final.jpeg') }}"/>
+	<link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='style.css') }}">
+	<style>
+		/* *
+		{
+			background-color: red;
+		} */
+		.contact__input
+		{
+			padding-left: 20px;
+			height: 32px;
+			border: none;
+			/* box-sizing: border-box; */
+			background-color: transparent;
+			width: 300px;
+			border-bottom: 1px solid blue;
+			margin: 5px 10px 10px 0;
+			outline: none;
+			font-size: 15px;
+			font-family: 'Arvo', serif;
+			margin-left: 30px; 
+			margin-bottom: 50px;
+			
+			
+		}
+		::placeholder{
+			color: #8B8989;
+		}
+		.contact__input:focus{
+			border: none;
+			border-bottom: 2px solid;
+			background-color: transparent;
+		}
+		.contact__button{
+			margin:auto;
+		}
+	</style>
+</head>
+<body>
+
+	<header class="l-header">
+		<nav class="nav bd-grid">
+			<div>
+				<a href="#" class="nav__logo">Healthsite</a>
+			</div>
+			<div class="nav__menu" id="nav-menu">
+				<ul class="nav__list">
+					<li class="nav__item"><a href="#home" class="nav__link active">Home</a></li>
+					<li class="nav__item"><a href="#services" class="nav__link">Services</a></li>
+					<li class="nav__item"><a href="#plans" class="nav__link">plans</a></li>
+					<li class="nav__item"><a href="#about" class="nav__link">About</a></li>
+					<li class="nav__item"><a href="#contact" class="nav__link">Contact</a></li>
+					<!-- <li class="nav__item"><a href="login" class="nav__link">Login/Sign Up</a></li> -->
+					<!-- <div><li class="nav__item"><button class="but" onclick="myFunction()"><i class='bx bxs-mask'></i></button></li></div> -->
+
+
+					
+
+
+				</ul>
+			</div>
+			<div class="nav__toggle" id="nav-toggle">
+				<i class='bx bx-menu'></i>
+			</div>
+		</nav>
+		
+	</header>
+	<main class="l-main">
+
+
+
+
+
+
+
+	
+
+
+
+
+
+		<!--<div class="home__img">
+				<img src="heart.jpg" alt="flower">
+			</div>-->
+		
+		<section class="home bd-grid" id="home">
+			<div class="home__data">
+				<h1 class="home__title">Hi, <br>everyone knows <br>Health<br>Is important</h1>
+				
+				<h3>You can find us on</h3>
+
+				<div class="home__social">
+					<a href="#" class="home__social-icon"><i class='bx bxl-linkedin'></i></a>
+					<a href="#" class="home__social-icon"><i class='bx bxl-instagram' ></i></a>
+					<a href="#" class="home__social-icon"><i class='bx bxl-github' ></i> </a>
+				</div> 
+			</div> 
+			
+			<!--<div class="home__img">
+				<img src="heart.jpg" alt="flower">
+			</div>-->
+		
+			
+		</section>
+		
+		
+
+
+
+
+
+
+
+		<section class="work section" id="services">
+			<h2 class="section-title">Services</h2>
+
+				<h2 class="skills__subtitle">We provide Three types of Services</h2><br><br><br>						
+				<!-- <p class="skills__text"><br> Heart Deases, Brain Tumer, Lung Cancer.</p> -->
+			
+				<div class="work__container bd-grid">
+					<div class="work__img">
+						<h3>Heart Deases</h3><br>
+						<a href = "heart_dieseas"><img src="{{ url_for('static', filename='heart1.jpg') }}"></a>
+					</div>
+			
+					<div class="work__img">
+						<h3>Brain Tumer</h3><br>
+						<a href = "brain"><img src="{{ url_for('static', filename='brain.png') }}"></a>
+					</div>
+			
+					<div class="work__img">
+						<h3>Diabetic</h3><br>
+						<a href = "diabetes"><img src="{{ url_for('static', filename='diabetic.png') }}"></a>
+					</div>
+
+					<div class="work__img">
+						<h3>Kidney</h3><br>
+						<a href = "kidney_dieseas"><img src="{{ url_for('static', filename='kidney.jpg') }}"></a>
+					</div>
+			
+								
+					</div>
+					</section>
+
+					
+			</div>
+		</section><br>
+
+						
+
+		
+		<section class="work section" id="plans">
+			<h2 class="section-title">We have Plans for you</h2>
+
+				<div class="work__container1 bd-grid">
+					<div class="plan">
+						<h2>One time</h2><br>
+						<div class="list">
+								<h3>E-mail support</h3>
+								<h3>Instant Delivery</h3>
+								<h3>10 usd per automated diagnosis</h3>
+								
+								
+							
+						</div>
+						
+					</div>
+
+					<div class="plan">
+						<h2>Premium</h2><br>
+							<h3>24/7 chat support</h3>
+							<h3>Privacy Guaranteed</h3>
+							<h3>1000 usd per month up to 300 diagnosis</h3>
+							
+						
+					</div>
+
+					<div class="plan">
+						<h2>Enterprise</h2><br>
+							<h3>20% off on all</h3>
+							<h3>24/7 phone support</h3>
+							<h3>Unlimited diagnosis</h3>
+							
+							
+							
+						
+					</div>
+
+					
+				</div>
+		</section>	
+
+	
+			
+			
+		</div>
+</section>	
+
+
+<section class="work section" id="about">
+	<h2 class="section-title">About Us</h2>
+
+		<div class="work__container1 bd-grid">
+			<div class="about__img">
+				<!-- <img src="user.jpg"> -->
+				<h2>Tirth Bharatiya</h2>
+				<h3>18DCS008</h3>
+				<h3>Sem-7  A batch</h3>
+				<h3>Backend Developer</h3>
+			</div>
+
+			<div class="about__img">
+				<!-- <img src="user.jpg"> -->
+				<h2>vikas Marwadi</h2>
+				<h3>18DCS043</h3>
+				<h3>Sem-7  B batch</h3>
+				<h3>Backend Developer</h3>
+			</div>
+
+			<div class="about__img">
+				<!-- <img src="user.jpg"> -->
+				<h2>Mistry Adnan</h2>
+				<h3>18DCS047</h3>
+				<h3>Sem-7  C batch</h3>
+				<h3>Frontend Developer</h3>
+			</div><br><br>
+
+			</div>
+			
+		</div>
+</section>
+		
+
+	<!--<section class="about section" id="about">
+			<h2 class="section-title">About Us</h2>
+
+			<div class="about__container bd-grid">
+				<div class="about__img">
+					<img src="me.jpg" alt="about">
+				</div>
+				<div class="about__img">
+					<img src="me.jpg" alt="about">
+				</div>
+				<div class="about__img">
+					<img src="me.jpg" alt="about">
+				</div>
+
+				<div>
+					<h2 class="about__subtitle">I'am Adnan</h2>
+					<p class="about__text">A paragraph is a series of related sentences developing a central idea, called the topic. Try to think about paragraphs in terms of thematic unity: a paragraph is a sentence or a group of sentences that supports one central, unified idea. Paragraphs add one idea at a time to your broader argument.</p>
+				</div>
+			</div>
+		</section>-->
+
+
+
+		
+		<section class="contact section" id="contact">
+			<h2 class="section-title">Get in Touch</h2>
+
+			<div class="contact__container bd-grid">
+				<form accept="" class="contact__form">
+					<input type="text" placeholder="Name" class="contact__input">
+					<input type="email" placeholder="E-mail" class="contact__input">
+					<textarea name="" id="" cols="0" rows="5" class="contact__input" placeholder="Suggestions/Queries"></textarea>
+
+					<input type="button" value="Submit" class="contact__button button ">
+				</form>
+			</div>
+		</section>
+	</div>
+	</main>
+
+
+	<footer class="footer">
+		<p class="footer__title">Healthsite</p>
+
+		<div class="footer__social">
+			<a href="#" class="footer__icon"><i class='bx bxl-facebook'></i></a>
+			<a href="#" class="footer__icon"><i class='bx bxl-instagram'></i></a>
+			<a href="#" class="footer__icon"><i class='bx bxl-twitter' ></i></i></a>	
+		</div>
+		<p>&#169; 2021 copyright all rights reserved </p>
+	</footer>
+	<script src="https://unpkg.com/scrollreveal"></script>
+	<script src="main.js"></script>
+</body>
+</html>

@@ -1,0 +1,399 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>Heart Dieseas Predication</title>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width,initial-scale=1.0">
+	<link href='https://unpkg.com/boxicons@2.0.7/css/boxicons.min.css' rel='stylesheet'>
+	<link rel="icon" href="{{ url_for('static', filename='final.jpeg') }}"/>
+	<link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='style.css') }}">
+	<style type="text/css">
+		/* #form-div{
+			padding-left: 300px;
+		}
+		div{
+			padding-bottom: 10px;
+		}
+		input, select{
+			border: none;
+			border-bottom: 2px solid;
+			margin: 5px 0 10px 0;
+			outline: none;
+			font-size: 15px;
+			margin-left: 10px;
+		} */
+		body
+		{
+			margin: 0;
+			padding: 0;
+			/* background-image: url("web.jpg"); */
+			background: #ebebeb;
+			/* text-align: center; */
+		}
+		#form-div{
+			/* padding-left: 400px; */
+			/* margin-left:500px; */
+			position: relative;
+			width: 850px;
+			padding-left: 200px;
+			height: 800px;
+			margin: 30px;
+			margin-left: 250px;
+			box-shadow: 20px 20px 50px rgba(0,0,0,0.5);
+			border-radius: 15px;
+			background: rgba(255,255,255,0.5);
+			overflow: hidden;
+			display: flex;
+			justify-content: center;
+			align-items: center;
+			border-top: 1px solid rgba(255,255,255,0.5);
+			border-left: 1px solid rgba(255,255,255,0.5);
+			backdrop-filter: blur(5px);
+		}
+		div{
+			padding-bottom: 10px;
+		}
+		input, select{
+			/* border-radius: 20px; */
+			/* border: none;
+			
+			background-color: transparent;
+			border-bottom: 1px solid;
+			padding-left: 10px;
+			height: 32px;
+			width: 250px;
+			border: 1px solid;
+			margin: 5px 0 10px 0;
+			outline: none;
+			font-size: 15px;
+			font-family: 'Arvo', serif;
+			margin-left: 10px; */
+			padding-left: 10px;
+			height: 32px;
+			border: none;
+			/* box-sizing: border-box; */
+			background-color: transparent;
+			width: 230px;
+			border-bottom: 1px solid;
+			margin: 5px 10px 10px 0;
+			outline: none;
+			font-size: 15px;
+			font-family: 'Arvo', serif;
+			margin-left: 30px; 
+		}
+		input:focus
+		{
+			border: none;
+			border-bottom: 2px solid;
+			background-color: transparent;
+		}
+		table
+		{
+			width: 100%;
+			margin-left: -220px;
+			margin-top: -30px;
+		}
+		h1{
+			font-family: 'Arvo', serif;
+		}
+		h2{
+			padding-bottom: 34px;;
+		}
+		/* .btn
+		{
+			width: 10%;
+			height: 30px;
+			margin-left: -1000px;
+			background-color: #424242;
+			border-radius: 20px;
+			color: white;
+			font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+			position: relative;
+			left: 250px;
+			font-size: 18px;
+		} */
+		.btn
+		{  
+			font-family: 'Arvo', serif;
+			margin-left: 320px;
+			margin-top: 40px;
+		}
+		.btn:hover .btn-slide-show-text1 
+		{  
+			margin-left: 65px;
+		}  
+		.btn-moving-gradient 
+		{  
+			height: 40px;  
+			width: 200px;  
+			font-size: 16px;  
+			font-weight: 600;  
+			color: rgb(221, 214, 214);  
+			cursor: pointer;  
+			border: none;  
+			background-size: 300% 100%;  
+			border-radius: 50px;
+		}  
+		.btn-moving-gradient:hover 
+		{  
+			transition: all 0.5s ease-in-out 0s;  
+			background-position: 100% 0px;
+		}  
+		.btn-moving-gradient--purple 
+		{  
+			background-image: linear-gradient(90deg, rgb(62, 53, 141), rgb(135, 53, 141), rgb(106, 53, 141), rgb(61, 52, 139));  
+			box-shadow: rgb(135, 53, 141) 0px 4px 15px 0px;
+		}  
+		label{
+			font-family: 'Arvo', serif;
+			text-align: right;
+		}
+	</style>
+</head>
+<body>
+	<header class="l-header">
+		<nav class="nav bd-grid">
+			<div>
+				<a href="#" class="nav__logo">Healthsite</a>
+			</div>
+			<div class="nav__menu" id="nav-menu">
+				<ul class="nav__list">
+					<li class="nav__item"><a href="home" class="nav__link">Home</a></li>
+					<!-- <li class="nav__item"><a href="services" class="nav__link active">Services</a></li>
+					<li class="nav__item"><a href="plans" class="nav__link">plans</a></li>
+					<li class="nav__item"><a href="about" class="nav__link">About</a></li>
+					<li class="nav__item"><a href="contact" class="nav__link">Contact</a></li> -->
+					<!-- <li class="nav__item"><a href="index.html" class="nav__link">Logout</a></li> -->
+				</ul>
+			</div>
+			
+		</nav>
+		
+	</header>
+	<!-- <h1 align="center">Heart Dieseas Prediction</h1>
+	<div id="form-div">
+		<form action="/heart_dieseas_predict" method="POST">
+			<table><div>
+				<label><b>Age:</b></label>
+				<input type="Number" name="age" required id="age">
+			</div>
+			<div>
+				<label><b>Sex:</b></label>
+				<select name="sex" id="sex">
+					<option value="1">Male</option>
+					<option value="0">Female</option>
+				</select>
+			</div>
+			<div>
+				<label><b>Resting Blood Pressure:</b></label>
+				<input type="number" name="trestbps" required id="trestbps">
+				<label>mm</label>
+			</div>
+			<div>
+				<label><b>Serum Cholestoral:</b></label>
+				<input type="number" name="chol" required id="chol">
+				<label>mg/dl</label>
+			</div>
+			<div>
+				<label><b>Fasting Blood Sugar:</b></label>
+				<select name="fbs" id="fbs">
+					<option value="1">>120 mg/dl</option>
+					<option value="0">=<120 mg/dl</option>
+				</select>
+			</div>
+			<div>
+				<label><b>Maximum Heart rate Achieved:</b></label>
+				<input type="number" name="thalach" required id="thalach">
+			</div>
+			<div>
+				<label><b>Exercise included Angina:</b></label>
+				<select name="exang" id="exang">
+					<option value="1">Yes</option>
+					<option value="0">No</option>
+				</select>
+			</div>
+			<div>
+				<label><b>ST depression induced by exercise relative to rest:</b></label>
+				<input type="text" name="oldpeak" required id="oldpeak">
+			</div>
+			<div>
+				<label><b>Chest Pain Type:</b></label>
+				<select name="cp" id="cp">
+					<option value="1">Typical Angina</option>
+					<option value="2">Atypical Angina</option>
+					<option value="3">Non-Anginal Pain</option>
+					<option value="4">Asymptomatic</option>
+				</select>
+			</div>
+			<div>
+				<label><b>Resting Electrocardiographic:</b></label>
+				<select name="restecg" id="restecg">
+					<option value="0">Normal</option>
+					<option value="1">Having ST-T wave abnormality (T wave inversions and/or ST elevation or depression of > 0.05 mV)</option>
+					<option value="2">Showing probable or definite left ventricular hypertrophy by Estes' criteria</option>
+				</select>
+			</div>
+			<div>
+				<label><b>The slope of the peak exercise ST segment:</b></label>
+				<select name="slope" id="slope">
+					<option value="1">Upslopping</option>
+					<option value="2">Flat</option>
+					<option value="3">Downsloping</option>
+				</select>
+			</div>
+			<div>
+				<label><b>Number of major vessels (0-4) colored by flourosopy:</b></label>
+				<select name="ca" id="ca">
+					<option value="0">0</option>
+					<option value="1">1</option>
+					<option value="2">2</option>
+					<option value="3">3</option>
+					<option value="4">4</option>
+				</select>
+			</div>
+			<div>
+				<label><b>Thalium Stress Test Result(Thal):</b></label>
+				<select name="thal" id="thal">
+					<option value="1">Reversable Defect</option>
+					<option value="2">Normal</option>
+					<option value="3">Fixed defect</option>
+					<option value="0">Not in Menu</option>
+				</select>
+			</div>
+			<div align="center">
+				<button type="Submit" class="btn btn-moving-gradient btn-moving-gradient--purple" style="font-size: 20px;">Predict</button>
+			</div>
+			
+		</form> -->
+		<h1 align="center">Heart Dieseas Prediction</h1>
+		<div id="form-div">
+			<table>
+			<form action="/heart_dieseas_predict" method="POST">
+				<tr>
+					<div>
+					<td><label><b>Age:</b></label></td>
+					<td><input type="Number" name="age" required id="age">  Years</td>
+					</div>
+				</tr>
+				<tr>
+					<div>
+						<td><label><b>Sex:</b></label></td>
+						<td><select name="sex" id="sex">
+							<option value="1">Male</option>
+							<option value="0">Female</option>
+						</select></td>
+					</div>
+				</tr>
+	
+				<tr>
+					<div>
+						<td><label><b>Resting Blood Pressure:</b></label></td>
+						<td><input type="number" name="trestbps" required id="trestbps">  mm</td>
+						<!-- <label>mm</label> -->
+					</div>
+				</tr>
+				
+				<tr>
+					<div>
+						<td><label><b>Serum Cholestoral:</b></label></td>
+						<td><input type="number" name="chol" required id="chol"> mg/dl</td>
+						<!-- <label>mg/dl</label> -->
+					</div>
+				</tr>
+				<tr>
+					<div>
+						<td><label><b>Fasting Blood Sugar:</b></label></td>
+						<td><select name="fbs" id="fbs">
+							<option value="1">>120 mg/dl</option>
+							<option value="0">=<120 mg/dl</option>
+						</select></td>
+					</div>
+				</tr>
+				<tr>
+					<div>
+						<td><label><b>Maximum Heart rate Achieved:</b></label></td>
+						<td><input type="number" name="thalach" required id="thalach"></td>
+					</div>
+				</tr>
+				<tr>
+					<div>
+						<td><label><b>Exercise included Angina:</b></label></td>
+						<td><select name="exang" id="exang">
+							<option value="1">Yes</option>
+							<option value="0">No</option>
+						</select></td>
+					</div>
+				</tr>
+				<tr>
+					<div>
+						<td><label><b>ST depression induced by exercise relative to rest:</b></label></td>
+						<td><input type="text" name="oldpeak" required id="oldpeak"></td>
+					</div>
+				</tr>
+				<tr><div>
+						<td><label><b>Chest Pain Type:</b></label></td>
+						<td><select name="cp" id="cp">
+								<option value="1">Typical Angina</option>
+								<option value="2">Atypical Angina</option>
+								<option value="3">Non-Anginal Pain</option>
+								<option value="4">Asymptomatic</option>
+							</select></td>
+				</div>
+				</tr>
+				<tr>
+					<div>
+						<td><label><b>Resting Electrocardiographic:</b></label></td>
+						<td><select name="restecg" id="restecg">
+						<option value="0">Normal</option>
+						<option value="1">Having ST-T wave abnormality (T wave inversions and/or ST elevation or depression of > 0.05 mV)</option>
+						<option value="2">Showing probable or definite left ventricular hypertrophy by Estes' criteria</option>
+					</select></td>
+				</div>
+				</tr>
+				<tr>
+					
+					<div>
+						<td><label><b>The slope of the peak exercise ST segment:</b></label></td>
+						<td><select name="slope" id="slope">
+						<option value="1">Upslopping</option>
+						<option value="2">Flat</option>
+						<option value="3">Downsloping</option>
+					</select></td>
+				</div>
+				</tr>
+				<tr>
+					<div>
+						<td><label><b>Number of major vessels (0-4) colored by flourosopy:</b></label></td>
+						<td><select name="ca" id="ca">
+						<option value="0">0</option>
+						<option value="1">1</option>
+						<option value="2">2</option>
+						<option value="3">3</option>
+						<option value="4">4</option>
+					</select></td>
+				</div></tr>
+				<tr>
+					<div>
+						<td><label><b>Thalium Stress Test Result(Thal):</b></label></td>
+						<td><select name="thal" id="thal">
+						<option value="1">Reversable Defect</option>
+						<option value="2">Normal</option>
+						<option value="3">Fixed defect</option>
+						<option value="0">Not in Menu</option>
+					</select></td>
+				</div></tr>
+				
+				<tr>
+						<td colspan="2"><button type="Submit" class="btn btn-moving-gradient btn-moving-gradient--purple" btn-moving-gradient--purple">Predict</button></td>
+				
+				</tr>
+				<!-- </div> -->
+				
+			</form>
+		</table><br>
+		<!-- <h2 align="center"><b>{{result}}</b></h2> -->
+	</div>
+	<h2 align="center"><b>{{result}}</b></h2>
+</body>
+</html>
