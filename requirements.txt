@@ -1,6 +1,4 @@
 Flask==1.1.1
 numpy==1.19.5
-opencv-python==4.5.4.58
 pickleshare==0.7.5
 Werkzeug==0.16.0
-tensorflow==2.5.0
